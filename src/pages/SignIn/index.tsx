@@ -6,12 +6,18 @@ import { Container, Content, Background } from './styles';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import logo from '../../assets/logo.svg';
-
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
+import AuthContext from '../../context/AutheContext';
+import { useContext } from 'react';
+
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+
+  const { name } = useContext(AuthContext);
+
+  console.log({ name });
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
